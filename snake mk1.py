@@ -5,6 +5,7 @@ import turtle
 import keyboard
 import time
 import random
+import math
 
 # variables
 # x coordinates of the box
@@ -16,7 +17,7 @@ y_index = 5
 x_snack_index = None
 y_snack_index = None
 direction = 90
-game_tick = 0.175
+game_tick = 0.15
 snake_died = False
 snack_eaten = True
 snake_length = 1
@@ -168,6 +169,7 @@ def eat_snack():
     global y_snack_index
     global snack_eaten
     global snake_length
+    global game_tick
     # main loop
     # checks if snack has been eaten
     if snack_eaten == False:
@@ -176,9 +178,8 @@ def eat_snack():
             snack_eaten = True
             snake_length = snake_length + 1
             snack.hideturtle()
-        else:
-            for x in range(0, snake_length - 1):
-                pass
+            game_tick = game_tick - 0.0015
+
 
 # delay snack
 def delay_snack():
