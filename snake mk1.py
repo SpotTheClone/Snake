@@ -17,7 +17,7 @@ y_index = 5
 x_snack_index = None
 y_snack_index = None
 direction = 90
-game_tick = 0.15
+game_tick = 0.17
 snake_died = False
 snack_eaten = True
 snake_length = 1
@@ -178,7 +178,7 @@ def eat_snack():
             snack_eaten = True
             snake_length = snake_length + 1
             snack.hideturtle()
-            game_tick = game_tick - 0.0015
+            game_tick = game_tick - 0.0017
 
 
 # delay snack
