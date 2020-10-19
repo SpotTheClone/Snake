@@ -1,4 +1,4 @@
-# snake mk1.1
+# snake mk1.2
 # developed by Blip Blop Inc. 2020*
 # import libraries
 import turtle
@@ -39,7 +39,7 @@ snake_length_old = 1
 # setup
 # turtle window setup
 wn = turtle.Screen()
-wn.title("Snake mk1.1")
+wn.title("Snake mk1.2")
 wn.bgcolor("white")
 wn.setup(width = 700, height = 700)
 wn.tracer(0)
@@ -234,12 +234,27 @@ def snake_encircled():
     global snake_length
     global snake_segments
     global snake_died
+    global box_xcor_past
+    global box_ycor_past
+    global box_xcor
+    global box_ycor
+    n = None
+    p = None
     # main code
     for x in range(0, snake_length - 1):
         if s1.xcor() == snake_segments[x].xcor() and s1.ycor() == snake_segments[x].ycor():
             snake_died = True
             print("snake died")
             print("snake encircled")
+            p = 2 * -1
+            s1.goto(box_xcor[box_xcor_past[p]], box_ycor[box_ycor_past[p]])
+            if snake_length >= 2:
+                for j in range(0, snake_length - 1):
+                    n = j + 3
+                    n = n * -1
+                    x = box_xcor[box_xcor_past[n]]
+                    y = box_ycor[box_ycor_past[n]]
+                    snake_segments[j].goto(x, y)
             break
 
 # execute setup functions
@@ -257,7 +272,8 @@ while True:
     set_snake_direction()
     # moves the snake in the direction told
     snake_encircled()
-    move_snake()
+    if snake_died == False:
+        move_snake()
     # the game starts when the user presses any input in the keyboard.
     # in order for the snack to generate properly with the random delays this loop is necessary
     if direction != None:
