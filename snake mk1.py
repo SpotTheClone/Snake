@@ -1,4 +1,4 @@
-# snake mk1.2
+# snake mk1.3
 # developed by Blip Blop Inc. 2020*
 # import libraries
 import turtle
@@ -40,7 +40,7 @@ snake_length_old = 1
 # setup
 # turtle window setup
 wn = turtle.Screen()
-wn.title("Snake mk1.2")
+wn.title("Snake mk1.3")
 wn.bgcolor("white")
 wn.setup(width = 700, height = 700)
 wn.tracer(0)
